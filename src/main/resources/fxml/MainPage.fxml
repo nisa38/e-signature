@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" stylesheets="@../styles/styling.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.gov.kosgeb.controller.MainPageUiController">
+    <children>
+        <Pane prefHeight="575.0" prefWidth="429.0" style="-fx-background-color: #c4e7fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+            <TabPane layoutX="14.0" layoutY="14.0" prefHeight="488.0" prefWidth="405.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Document Pick">
+                  <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="354.0" prefWidth="406.0">
+                          <children>
+                              <VBox layoutX="7.0" layoutY="13.0" prefHeight="436.0" prefWidth="392.0" spacing="20" style="-fx-padding:10.0;">
+                                  <TextField fx:id="txtQrCodeNumber" prefHeight="32.0" prefWidth="350.0" promptText="QrCode : type qrcode number and hit enter" />
+                                  <TextField fx:id="txtTitle" prefHeight="32.0" prefWidth="350.0" promptText="Tax Number &amp; Title" />
+                                  <ComboBox fx:id="txtUnit" editable="true" layoutX="20.0" layoutY="149.0" prefHeight="30.0" prefWidth="369.0" promptText="Unit to be sent" />
+                                  <TextArea fx:id="txtDocumentName" prefHeight="42.0" prefWidth="350.0" promptText="Document name" />
+                                  <VBox layoutX="7.0" layoutY="251.0" prefHeight="200.0" prefWidth="392.0" spacing="5" style="-fx-padding:5.0;">
+                                      <HBox alignment="TOP_RIGHT" prefHeight="32.0" prefWidth="119.0">
+                                          <children>
+                                              <Button fx:id="btnDeleteFile" mnemonicParsing="false" onMouseClicked="#actionDeleteButton">
+                                                  <graphic>
+                                                      <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                          <image>
+                                                              <Image url="@../images/deleteSign.png" />
+                                                          </image>
+                                                      </ImageView>
+                                                  </graphic>
+                                              </Button>
+                                              <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="5.0" />
+                                              <Button fx:id="btnAddFile" mnemonicParsing="false" onAction="#actionChooseFiles">
+                                                  <graphic>
+                                                      <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                          <image>
+                                                              <Image url="@../images/plusSign.png" />
+                                                          </image>
+                                                      </ImageView>
+                                                  </graphic>
+                                              </Button>
+                                          </children>
+                                      </HBox>
+                                      <TableView fx:id="tblFileList" editable="true" prefHeight="180.0" prefWidth="362.0">
+                                          <placeholder>
+                                              <Label text="No file choosen" />
+                                          </placeholder>
+                                          <columns>
+                                              <TableColumn fx:id="colFileName" prefWidth="355.4000046849251" text="File Name" />
+                                          </columns>
+                                      </TableView>
+                                  </VBox>
+
+                              </VBox>
+                          </children>
+                      </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Broadcast List">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="409.0">
+                           <children>
+                               <HBox alignment="TOP_RIGHT" layoutX="8.0" layoutY="21.0" prefHeight="32.0" prefWidth="391.0">
+                                   <children>
+                                       <ComboBox fx:id="cbSelectPersonnel" prefHeight="26.0" prefWidth="229.0" promptText="Select person to be sent and press (+) sign" />
+                                       <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="5.0" />
+                                       <ComboBox fx:id="cbSelectAction" editable="true" prefHeight="26.0" prefWidth="80.0" promptText="Select person to be sent and press (+) sign" />
+                                       <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="5.0" />
+                                       <Button fx:id="btnDeletePublish" mnemonicParsing="false" onMouseClicked="#actionDeleteButton">
+                                           <graphic>
+                                               <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                       <Image url="@../images/deleteSign.png" />
+                                                   </image>
+                                               </ImageView>
+                                           </graphic>
+                                       </Button>
+                                       <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="5.0" />
+                                       <Button fx:id="btnAddBroadCast" mnemonicParsing="false" onMouseClicked="#addEmptyTableRow">
+                                           <graphic>
+                                               <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                       <Image url="@../images/plusSign.png" />
+                                                   </image>
+                                               </ImageView>
+                                           </graphic>
+                                       </Button>
+                                   </children>
+                               </HBox>
+                               <TableView fx:id="tblPublishList" layoutX="7.0" layoutY="52.0" prefHeight="348.0" prefWidth="391.0">
+                                   <placeholder>
+                                       <Label text="No publisher added" />
+                                   </placeholder>
+                                   <columns>
+                                       <TableColumn fx:id="colNameSurname" onEditCommit="#changeCellValueEvent" prefWidth="156.99997854232788" text="Name &amp; Surname">
+                                       </TableColumn>
+                                       <TableColumn fx:id="colAction" onEditCommit="#changeCellValueEvent" prefWidth="76.39999389648438" text="Action" />
+                                       <TableColumn fx:id="colUnit" onEditCommit="#changeCellValueEvent" prefWidth="152.20001220703125" text="Unit" />
+                                   </columns>
+                               </TableView>
+
+
+                           </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Signers">
+                      <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="409.0">
+                              <children>
+                                  <HBox alignment="TOP_RIGHT" layoutX="7.0" layoutY="22.0" prefHeight="32.0" prefWidth="384.0">
+                                      <children>
+                                          <ComboBox fx:id="cbSelectSigner" editable="true" prefHeight="26.0" prefWidth="326.0" promptText="Select person to be sent and press (+) sign" />
+                                          <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="5.0" />
+                                          <Button fx:id="btnDeleteSigner" mnemonicParsing="false" onMouseClicked="#actionDeleteButton">
+                                              <graphic>
+                                                  <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                      <image>
+                                                          <Image url="@../images/deleteSign.png" />
+                                                      </image>
+                                                  </ImageView>
+                                              </graphic>
+                                          </Button>
+                                          <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="5.0" />
+                                          <Button fx:id="btnAddSigner" mnemonicParsing="false" onMouseClicked="#addEmptyTableRow">
+                                              <graphic>
+                                                  <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                      <image>
+                                                          <Image url="@../images/plusSign.png" />
+                                                      </image>
+                                                  </ImageView>
+                                              </graphic>
+                                          </Button>
+                                          <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="5.0" />
+                                          <Button fx:id="btnAddCustomSigner" mnemonicParsing="false" onMouseClicked="#addEmptyTableRow">
+                                              <graphic>
+                                                  <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                      <image>
+                                                          <Image url="@../images/editSign.png" />
+                                                      </image>
+                                                  </ImageView>
+                                              </graphic>
+                                          </Button>
+                                      </children>
+                                  </HBox>
+                                  <TableView fx:id="tblSignersList" layoutX="6.0" layoutY="53.0" prefHeight="347.0" prefWidth="392.0">
+                                      <placeholder>
+                                          <Label text="No signers added" />
+                                      </placeholder>
+                                      <columns>
+                                          <TableColumn fx:id="colCitizenShipNumber" prefWidth="127.39997243881226" text="Citizenship No" />
+                                          <TableColumn fx:id="colFirstNameLastName" prefWidth="191.80001831054688" text="Name Surname" />
+                                          <TableColumn fx:id="colSignOrder" prefWidth="65.39999389648438" text="Sign Order" />
+                                      </columns>
+                                  </TableView>
+                              </children>
+                          </AnchorPane>
+                      </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+                <Button fx:id="btnSave" layoutX="66.0" layoutY="510.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" text="Save Document">
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icon-104-folder-checked1.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </Pane>
+        <HBox alignment="TOP_RIGHT" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="637.0">
+            <children>
+                <ComboBox fx:id="cbSelectSearchType" prefHeight="26.0" prefWidth="311.0" promptText="Select search type" />
+                <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="5.0" />
+                <Button fx:id="btnSearch" mnemonicParsing="false" onMouseClicked="#searchDocuments" prefHeight="27.0" prefWidth="131.0" text="Search">
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icon-111-search.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="5.0" />
+                <Button fx:id="btnSignDocument" mnemonicParsing="false" onMouseClicked="#signDocuments" prefHeight="27.0" prefWidth="183.0" text="Sign Selected Document">
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icon-136-document-edit.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <TableView fx:id="tblData" layoutX="438.0" layoutY="71.0" prefHeight="488.0" prefWidth="651.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="438.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="71.0">
+            <columns>
+                <TableColumn prefWidth="73.800048828125" text="QR Code" />
+                <TableColumn prefWidth="200.4000244140625" text="Document Name" />
+                <TableColumn prefWidth="106.79998779296875" text="Creation Date" />
+                <TableColumn prefWidth="194.199951171875" text="Document Date Number" />
+                <TableColumn prefWidth="65.800048828125" text="Status" />
+            </columns>
+<!--            <columnResizePolicy>-->
+<!--                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY">-->
+
+<!--                </TableView>-->
+<!--            </columnResizePolicy>-->
+        </TableView>
+    </children>
+</AnchorPane>
