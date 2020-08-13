@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="766.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tr.gov.kosgeb.controller.LoginUiController">
+    <children>
+        <AnchorPane prefHeight="503.0" prefWidth="407.0" style="-fx-background-color: #c4e7fb;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="214.0" fitWidth="390.0" layoutX="9.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+        </AnchorPane>
+        <Pane layoutX="422.0" layoutY="101.0" prefHeight="400.0" prefWidth="331.0" AnchorPane.bottomAnchor="72.0" AnchorPane.topAnchor="101.0">
+            <children>
+                <Label layoutX="10.0" layoutY="184.0" prefHeight="17.0" prefWidth="96.0" text="PIN Code :" />
+                <PasswordField fx:id="txtPinCode" layoutX="123.0" layoutY="176.0" prefHeight="34.0" prefWidth="156.0" promptText="PIN Code" stylesheets="@../styles/styling.css" />
+                <Button fx:id="btnSignin" layoutX="124.0" layoutY="242.0" mnemonicParsing="false"  onMouseClicked="#signInAction" prefHeight="34.0" prefWidth="156.0" stylesheets="@../styles/styling.css" text="Sign in">
+                    <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icon-24-key.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnCheckSmarCardInfo" layoutX="5.0" layoutY="242.0" mnemonicParsing="false" onMouseClicked="#checkSmartCard" prefHeight="34.0" prefWidth="110.0" stylesheets="@../styles/styling.css" text="Check Card">
+                </Button>
+                <Button fx:id="btnTr" layoutX="25" layoutY="-10" mnemonicParsing="false" onMouseClicked="#changeLanguage" prefHeight="25.0" prefWidth="110.0" stylesheets="@../styles/styling.css" text="Türkçe">
+                </Button>
+                <Button fx:id="btnEn" layoutX="135" layoutY="-10" mnemonicParsing="false" onMouseClicked="#changeLanguage" prefHeight="25.0" prefWidth="110.0" stylesheets="@../styles/styling.css" text="İngilizce">
+                </Button>
+                <Label fx:id="lblErrors" alignment="CENTER" layoutX="10.0" layoutY="293.0" prefHeight="23.0" prefWidth="275.0" text="-" textFill="#ff6354">
+                    <font>
+                        <Font name="Segoe UI" size="10.0" />
+                    </font>
+                </Label>
+             <Label fx:id="lblCitizenshipNumberTitle" layoutX="10.0" layoutY="24.0" prefHeight="17.0" prefWidth="96.0" text="CitizenShip No :" />
+              <Label fx:id="lblCitizenshipNumber" layoutX="119.0" layoutY="21.0" prefHeight="23.0" prefWidth="156.0" text="***" textFill="#a6b1cc">
+                  <font>
+                      <Font name="Segoe UI" size="12.0" />
+                  </font>
+              </Label>
+                <Label fx:id="lblNameSurnameTitle" layoutX="10.0" layoutY="53.0" text="Name - Surname :" />
+                <Label fx:id="lblNameSurname" layoutX="119.0" layoutY="51.0" prefHeight="23.0" prefWidth="156.0" text="Name Surname" textFill="#a6b1cc">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+
+                <Label fx:id="lblIssuingAuthorityTitle"  layoutX="10.0" layoutY="85.0" text="Issuing Authority :" />
+                <Label fx:id="lblIssuingAuthority" layoutX="119.0" layoutY="81.0" prefHeight="23.0" prefWidth="208.0" text="issuing auth" textFill="#a6b1cc">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+
+                <Label fx:id="lblStartDAteTitle" layoutX="10.0" layoutY="117.0" prefHeight="17.0" prefWidth="96.0" text="Start Date :" />
+                <Label fx:id="lblStartDAte" layoutX="119.0" layoutY="111.0" prefHeight="23.0" prefWidth="156.0" text="start date" textFill="#a6b1cc">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="lblEndDateTitle" layoutX="10.0" layoutY="149.0" prefHeight="17.0" prefWidth="96.0" text="End Date :" />
+                <Label fx:id="lblEndDate" layoutX="119.0" layoutY="141.0" prefHeight="23.0" prefWidth="156.0" text="end date" textFill="#a6b1cc">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Label layoutX="431.0" layoutY="454.0" prefHeight="23.0" prefWidth="93.0" text="\@2020" textFill="#5b5a5a" AnchorPane.bottomAnchor="25.80000000000001">
+            <font>
+                <Font name="Segoe UI" size="12.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="73.0" fitWidth="86.0" layoutX="422.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/ESignerSplashScreen.jpg" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>
